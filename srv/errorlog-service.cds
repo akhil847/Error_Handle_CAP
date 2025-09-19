@@ -1,0 +1,30 @@
+using CPI_errordetails_schema as E_Schema from '../db/schema';
+
+service CatalogService {
+
+      @UI.UpdateHidden   : false
+  entity ErrorLogSet as projection on E_Schema.ErrorLogSet
+    actions {
+
+      @Common.SideEffects: [{TargetEntities: ['ErrorLogSet']}]
+      action reTrigger();
+
+      action sourcePayloadUpdate(Source_payload: LargeString) returns {
+        response : String;
+      }
+    }
+    function countErrors() returns {
+        TotalErrors: Integer;
+        TotalSuccessErrors: Integer;
+        TotalNoretries: Integer;
+        TotalFailedErrors: Integer;
+    }
+
+  function countErrorsDonut() returns array of ErrorCountType;
+  type ErrorCountType : {
+    Identifier : String;
+    Value      : Integer;
+  }
+  entity ErrorFilesSet as projection on E_Schema.ErrorFilesSet
+
+}

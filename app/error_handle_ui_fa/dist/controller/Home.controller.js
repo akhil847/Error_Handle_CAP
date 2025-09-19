@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel"],(e,o)=>{"use strict";return e.extend("com.app.errorhandleuifa.controller.Home",{onInit:function(){}})});
+//# sourceMappingURL=Home.controller.js.map

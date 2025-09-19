@@ -1,0 +1,303 @@
+<mvc:View
+    controllerName="com.app.errorhandleuifa.controller.Home"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:w="sap.ui.integration.widgets"
+    xmlns:cssgrid="sap.ui.layout.cssgrid"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <!-- <f:ShellBar
+            id="_IDGenShellBar"
+            title="Drone Hive"
+            secondTitle="secondTitle"
+            homeIcon="homeIcon"
+            showCopilot="true"
+            showSearch="true"
+            showNotifications="true"
+            showProductSwitcher="true"
+            class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+        >
+            <f:menu>
+                <Menu id="_IDGenMenu1">
+                    <MenuItem
+                        id="_IDGenMenuItem"
+                        text="Monitor"
+                        icon="homeIconUrl"
+                    />
+                </Menu>
+            </f:menu>
+            <f:profile>
+                <Avatar
+                    id="_IDGenAvatar"
+                    initials="UI"
+                />
+            </f:profile>
+        </f:ShellBar> -->
+        <IconTabBar
+            id="idIconTabBar"
+            select="handleIconTabBarSelect"
+            headerBackgroundDesign="Transparent"
+            class="sapUiResponsiveContentPadding sapUiSmallMarginBegin"
+        >
+            <items>
+                <IconTabFilter
+                    id="_IDGenIconTabFilter"
+                    text="Overview"
+                >
+                    <Title
+                        id="_IDGenTitle1"
+                        text="All Errors"
+                        titleStyle="H2"
+                        class="sapUiSmallMarginBottom sapUiSmallMarginTop sapUiSmallMarginBegin"
+                    />
+                    <f:GridContainer id="_IDGenGridContainer">
+                        <f:layout>
+                            <f:GridContainerSettings
+                                id="_IDGenGridContainerSettings"
+                                rowSize="5rem"
+                                columnSize="5rem"
+                                gap="1rem"
+                            />
+                        </f:layout>
+                        <f:layoutS>
+                            <f:GridContainerSettings
+                                id="_IDGenGridContainerSettings1"
+                                rowSize="5rem"
+                                columnSize="5rem"
+                                gap="0.5rem"
+                            />
+                        </f:layoutS>
+                        <!-- Custom Cars -->
+                        <!-- card1 -->
+                        <w:Card
+                            id="totalErrorsCard"
+                            manifest="./cardsManifests/totalErrorsCard.json"
+                            height="250px"
+                            width="250px"
+                            action="onAction"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData1"
+                                    minRows="4"
+                                    columns="3"
+                                />
+                            </w:layoutData>
+                        </w:Card>
+                        <!-- card2 -->
+                        <w:Card
+                            id="totalReprocessSuccessCard"
+                            manifest="./cardsManifests/totalSuccessCard.json"
+                            height="250px"
+                            width="250px"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData2"
+                                    minRows="4"
+                                    columns="3"
+                                />
+                            </w:layoutData>
+                        </w:Card>
+                        <!-- card3 -->
+                        <w:Card
+                            id="totalReprocessFailedCard"
+                            manifest="./cardsManifests/totalFailed.json"
+                            height="250px"
+                            width="250px"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData3"
+                                    minRows="4"
+                                    columns="3"
+                                />
+                            </w:layoutData>
+                        </w:Card>
+                        <!-- card4 -->
+                        <w:Card
+                            id="totalNoRetriesYet"
+                            manifest="./cardsManifests/totalNoRetries.json"
+                            height="250px"
+                            width="250px"
+                            action="onAction"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData12"
+                                    minRows="4"
+                                    columns="3"
+                                />
+                            </w:layoutData>
+                        </w:Card>
+
+                        <!-- cards end -->
+
+                        <!-- <w:Card
+                            id="_IDGenCard"
+                            manifest="{manifests>/timeline}"
+                            action="onAction"
+                        >
+                            <w:customData>
+                                <card:CardBadgeCustomData
+                                    id="_IDGenCardBadgeCustomData"
+                                    value="Updated"
+                                    icon="sap-icon://status-in-process"
+                                    state="Indication03"
+                                    announcementText="The card is recently updated."
+                                />
+                            </w:customData>
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData"
+                                    minRows="4"
+                                    columns="4"
+                                />
+                            </w:layoutData>
+                        </w:Card> -->
+                        <!-- <w:Card
+                            id="_IDGenCard1"
+                            manifest="{manifests>/object}"
+                            action="onAction"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData1"
+                                    minRows="4"
+                                    columns="3"
+                                />
+                            </w:layoutData>
+                        </w:Card> -->
+                        <!-- <w:Card
+                            id="_IDGenCard2"
+                            manifest="{path: 'manifests>/component', formatter: '.resolveCardUrl'}"
+                            action="onAction"
+                        >
+                            <w:customData>
+                                <card:CardBadgeCustomData
+                                    id="_IDGenCardBadgeCustomData1"
+                                    value="New"
+                                    announcementText="Card was newly added."
+                                />
+                                <card:CardBadgeCustomData
+                                    id="_IDGenCardBadgeCustomData2"
+                                    icon="sap-icon://pushpin-off"
+                                    visibilityMode="Persist"
+                                    announcementText="The card is pinned on top."
+                                />
+                            </w:customData>
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData2"
+                                    minRows="5"
+                                    columns="6"
+                                />
+                            </w:layoutData>
+                        </w:Card> -->
+                        <!-- <w:Card
+                            id="_IDGenCard3"
+                            manifest="{manifests>/calendar}"
+                            action="onAction"
+                        >
+                            <w:customData>
+                                <card:CardBadgeCustomData
+                                    id="_IDGenCardBadgeCustomData3"
+                                    value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue libero ut blandit faucibus. Phasellus sed urna id tortor consequat accumsan eget at leo. Cras quis arcu magna."
+                                    announcementText="Lorem ipsum"
+                                />
+                            </w:customData>
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData3"
+                                    minRows="4"
+                                    columns="4"
+                                />
+                            </w:layoutData>
+                        </w:Card> -->
+                    </f:GridContainer>
+                    <Title
+                        id="_IDGenTitle"
+                        text="Incidents"
+                        titleStyle="H2"
+                        class="sapUiSmallMarginBottom sapUiSmallMarginTop sapUiSmallMarginBegin"
+                    />
+                    <f:GridContainer id="_IDGenGridContainer1">
+                        <f:layout>
+                            <f:GridContainerSettings
+                                id="_IDGenGridContainerSettings2"
+                                rowSize="5rem"
+                                columnSize="5rem"
+                                gap="1rem"
+                            />
+                        </f:layout>
+                        <f:layoutS>
+                            <f:GridContainerSettings
+                                id="_IDGenGridContainerSettings3"
+                                rowSize="5rem"
+                                columnSize="5rem"
+                                gap="0.5rem"
+                            />
+                        </f:layoutS>
+                        <!-- <w:Card
+                            id="_IDGenCard4"
+                            manifest="{manifests>/stackedColumn}"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData4"
+                                    rows="5"
+                                    columns="4"
+                                />
+                            </w:layoutData>
+                        </w:Card> -->
+                        <w:Card
+                            id="_IDGenCard5"
+                            manifest="./cardsManifests/donut.json"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData5"
+                                    rows="4"
+                                    columns="4"
+                                />
+                            </w:layoutData>
+                        </w:Card>
+                        <!-- <w:Card
+                            id="_IDGenCard6"
+                            manifest="{manifests>/list1}"
+                            baseUrl="./"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData6"
+                                    columns="4"
+                                />
+                            </w:layoutData>
+                        </w:Card> -->
+                        <!-- <w:Card
+                            id="_IDGenCard7"
+                            manifest="{manifests>/list2}"
+                            baseUrl="./"
+                            action="onAction"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData
+                                    id="_IDGenGridContainerItemLayoutData7"
+                                    columns="4"
+                                />
+                            </w:layoutData>
+                        </w:Card> -->
+                    </f:GridContainer>
+                </IconTabFilter>
+                <!-- <IconTabFilter text="Team Distribution" />
+			<IconTabFilter text="Drone Maintenance" />
+			<IconTabFilter text="Drone Development" /> -->
+            </items>
+        </IconTabBar>
+    </Page>
+</mvc:View>
