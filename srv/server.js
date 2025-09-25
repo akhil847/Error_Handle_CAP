@@ -10,7 +10,7 @@ cds.on('bootstrap', app => {
     if ((req.method === 'POST' || req.method === 'PUT') && req.body) {
       const body = req.body;
 
-      // Handle Source_payload (ErrorLogSet)
+      // Handling Source_payload
       if (body.Source_payload && typeof body.Source_payload != 'string') {
         try {
           body.Source_payload = JSON.stringify(body.Source_payload);

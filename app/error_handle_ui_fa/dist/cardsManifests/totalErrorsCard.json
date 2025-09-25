@@ -32,7 +32,7 @@
         {
           "title": "Error Count",
           "items": [
-            {"label": "All Errors", "value": "{TotalErrors}"}
+            {"label": "All Errors", "value": "{TotalErrors}", "valueColor": "{Status}"}
           ]
         }
       ]

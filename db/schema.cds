@@ -18,24 +18,20 @@ using {
 // @Capabilities : { Updatable }
 entity ErrorLogSet : cuid, managed {
 
-  // @UI.SelectionField        : [{position: 10}]
   @UI.editable         : true
   @title               : 'Source Payload'
   @UI.lineItem.position: 10
   Source_payload     : LargeString;
 
-  // @UI.SelectionField        : [{position: 20}]
   @title               : 'Status Code'
   @UI.lineItem.position: 20
   Error_Code         : String;
 
-  // @UI.SelectionField        : [{position: 30}]
   @title               : 'Error Message'
   @UI.lineItem.position: 30
   @UI.multiLineText
   Error_Msg          : LargeString;
 
-  // @UI.SelectionField        : [{position: 40}]
   @title               : 'Message ID'
   @UI.lineItem.position: 40
   Msg_ID             : String;
@@ -44,7 +40,6 @@ entity ErrorLogSet : cuid, managed {
   @UI.lineItem.position: 50
   CorrelationID      : String;
 
-  // @UI.SelectionField        : [{position: 50}]
   @title               : 'Integration Flow'
   @UI.lineItem.position: 60
   iFlow_name         : String;
@@ -56,20 +51,52 @@ entity ErrorLogSet : cuid, managed {
   @title               : 'Status'
   @UI.lineItem.position: 80
   Status             : String;
+  
+  @title               : 'Receiver System'
+  Receiver_System : String;
 
 
 }
 
 entity ErrorFilesSet : cuid, managed {
 
-      // file fields
-      @title: 'File Name'
-      FileName : String(255);
+  // file fieldsa
+  @UI.lineItem.position: 5
+  @title               : 'File Name'
+  FileName      : String(255);
 
-      // @UI.Hidden: true
-      Content  : LargeBinary @Core.MediaType: MIMEType;
+  // @UI.Hidden: true
+  @UI.lineItem.position: 10
 
-      @title: 'File Type'
-      MIMEType : String;
+  Content       : LargeBinary @Core.MediaType: MIMEType;
+
+  @UI.lineItem.position: 15
+  @title               : 'File Type'
+  MIMEType      : String;
+
+  @UI.lineItem.position: 20
+  @title               : 'Error Message'
+  Error_message : String;
+
+  @UI.lineItem.position: 25
+  @title               : 'Status Code'
+  Error_Code    : String;
+
+  @title               : 'Retry count'
+  @UI.lineItem.position: 70
+  NumberOfRetriggersofFile : Integer;
+
+  @title               : 'Status'
+  @UI.lineItem.position: 80
+  Status             : String;
+
+  @title               : 'Correlation Id'
+  CorrelationID : String;
+
+  @title               : 'Receiver System'
+  Receiver_System : String;
+
+  @title               : 'Integration Flow'
+  iFlow_name         : String;
 
 }

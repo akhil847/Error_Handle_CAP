@@ -1,21 +1,6 @@
 using CatalogService as service from '../../srv/errorlog-service';
 
-// @OData.publish: true
-// service CatalogService;
 
-// annotate service.reTrigger with @Core.OperationAvailable: true;
-
-// annotate CatalogService.ErrorLogSet with @Capabilities.UpdateRestrictions: {
-//   Updatable: true
-// };
-
-annotate service.ErrorLogSet with @(UI.UpdateHidden: false);
-
-// annotate CatalogService.ErrorLogSet with {
-//   @Capabilities.InsertRestrictions: { Insertable: true },
-//   @Capabilities.UpdateRestrictions: { Updatable: true },
-//   @Capabilities.DeleteRestrictions: { Deletable: true }
-// };
 
 annotate service.ErrorLogSet with {
     createdAt  @UI.HiddenFilter: false;
@@ -27,6 +12,11 @@ annotate service.ErrorLogSet with {
 
 annotate service.ErrorLogSet with @(
 
+    UI.HeaderInfo                 : {
+        TypeName      : 'All integration flow issues',
+        TypeNamePlural: 'All integration flow issues',
+        Title         : {Value: title}
+    },
 
     UI.SelectionFields            : [
         createdAt,
@@ -69,7 +59,7 @@ annotate service.ErrorLogSet with @(
             $Type: 'UI.DataField',
             Value: Status
         },
-        // cust Btn
+        // cust Btns
         {
             $Type      : 'UI.DataFieldForAction',
             Action     : 'CatalogService.reTrigger',
@@ -78,6 +68,12 @@ annotate service.ErrorLogSet with @(
             Criticality: #Positive,
         // Inline : true,
         }
+    //  {
+    //     $Type      : 'UI.DataFieldForAction',
+    //     Action     : 'CatalogService.TriggerSFTP',
+    //     Label      : 'Trigger SFTP Server',
+    //     Criticality: #Positive
+    // }
     ],
 
     UI.FieldGroup #GeneratedGroup : {

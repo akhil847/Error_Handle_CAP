@@ -1,0 +1,16 @@
+{
+  "Component-preload.js.map": 1758696872333,
+  "Component.js": 1758522605166,
+  "ext/controller/FileDownloader.js": 1758628349287,
+  "manifest.json": 1758630405198,
+  "ext/controller/FileUploader.js": 1758627123303,
+  "Component-dbg.js": 1758522605166,
+  "Component.js.map": 1758696872254,
+  "ext/controller/FileDownloader-dbg.js": 1758628349287,
+  "ext/controller/FileDownloader.js.map": 1758696872260,
+  "ext/controller/FileUploader-dbg.js": 1758627123303,
+  "ext/controller/FileUploader.js.map": 1758696872261,
+  "Component-preload.js": 1758696872333,
+  "i18n/i18n.properties": 1758522613086,
+  "index.html": 1758522605166
+}

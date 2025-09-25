@@ -42,12 +42,12 @@ modules:
       name: comapperrorhandleui
       target-path: resources/
     - artifacts:
-      - comapperrorhandleuiov.zip
-      name: comapperrorhandleuiov
-      target-path: resources/
-    - artifacts:
       - comapperrorhandleuifa.zip
       name: comapperrorhandleuifa
+      target-path: resources/
+    - artifacts:
+      - comapperrorhandleuifilesui.zip
+      name: comapperrorhandleuifilesui
       target-path: resources/
 - name: comapperrorhandleui
   type: html5
@@ -101,9 +101,9 @@ modules:
         existing_destinations_policy: ignore
   build-parameters:
     no-source: true
-- name: comapperrorhandleuiov
+- name: comapperrorhandleuifa
   type: html5
-  path: app/error_handle_ui_ov
+  path: app/error_handle_ui_fa
   build-parameters:
     build-result: dist
     builder: custom
@@ -111,9 +111,9 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
-- name: comapperrorhandleuifa
+- name: comapperrorhandleuifilesui
   type: html5
-  path: app/error_handle_ui_fa
+  path: app/error_handle_ui_files_ui
   build-parameters:
     build-result: dist
     builder: custom

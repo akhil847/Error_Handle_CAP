@@ -129,12 +129,27 @@
                         >
                             <w:layoutData>
                                 <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData12"
+                                    id="_IDGenGridContainerItemLayoutData4"
                                     minRows="4"
                                     columns="3"
                                 />
                             </w:layoutData>
                         </w:Card>
+                        <!-- card5 -->
+                        <!-- <w:Card
+                            id="userInfoCard"
+                            manifest="./cardsManifests/userInfoCard.json"
+                            height="250px"
+                            width="250px"
+                        >
+                            <w:layoutData>
+                                <f:GridContainerItemLayoutData 
+                                    id="_IDGenGridContainerItemLayoutData6"
+                                    minRows="4"
+                                    columns="3"
+                                />
+                            </w:layoutData>
+                        </w:Card> -->
 
                         <!-- cards end -->
 

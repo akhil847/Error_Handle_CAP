@@ -2,11 +2,16 @@ using CPI_errordetails_schema as E_Schema from '../db/schema';
 
 service CatalogService {
 
-      @UI.UpdateHidden   : false
+  action TriggerSFTP()  returns {
+        Status: String;
+        Message: LargeString;
+    };
+
+  @UI.UpdateHidden   : false
   entity ErrorLogSet as projection on E_Schema.ErrorLogSet
     actions {
 
-      @Common.SideEffects: [{TargetEntities: ['ErrorLogSet']}]
+      // @Common.SideEffects: [{TargetEntities: ['ErrorLogSet']}]
       action reTrigger();
 
       action sourcePayloadUpdate(Source_payload: LargeString) returns {
@@ -25,6 +30,8 @@ service CatalogService {
     Identifier : String;
     Value      : Integer;
   }
-  entity ErrorFilesSet as projection on E_Schema.ErrorFilesSet
+  entity ErrorFilesSet as projection on E_Schema.ErrorFilesSet actions{
+    action reTriggerFile()
+  }
 
 }

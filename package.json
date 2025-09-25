@@ -31,13 +31,10 @@
     "undeploy": "cf undeploy Error_Handle_CAP --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "watch-error_handle_ui_ov": "cds watch --open com.app.errorhandleuiov/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-error_handle_ui_fa": "cds watch --open com.app.errorhandleuifa/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-error_handle_ui_fa": "cds watch --open com.app.errorhandleuifa/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-error_handle_ui_files_ui": "cds watch --open com.app.errorhandleuifilesui/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
-    "fiori": {
-      "bypass_draft": true
-    },
     "requires": {
       "[production]": {
         "auth": "xsuaa"
@@ -51,6 +48,7 @@
   ],
   "sapux": [
     "app/error_handle_ui",
-    "app/error_handle_ui_ov"
+    "app/error_handle_ui_fa",
+    "app/error_handle_ui_files_ui"
   ]
 }

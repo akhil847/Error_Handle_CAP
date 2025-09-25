@@ -157,6 +157,17 @@
                     },
                     "DataFieldForAction::CatalogService.reTrigger": {
                       "enableOnSelect": "single"
+                    },
+                    "Id_trigger_SFTP_server": {
+                      "press": "com.app.errorhandleui.ext.controller.TriggerSFTP.OnTriggerSFTP",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Trigger SFTP Server",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "DataFieldForAction::CatalogService.reTrigger"
+                      }
                     }
                   }
                 }

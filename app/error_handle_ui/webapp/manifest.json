@@ -128,7 +128,11 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable",
-                    "selectionLimit": 5
+                    "selectionLimit": 5,
+                    "disableCopyToClipboard": true,
+                    "quickVariantSelection": {
+                      "hideTableTitle": false
+                    }
                   },
                   "actions": {
                     "id_Edit_Button": {
@@ -144,6 +148,17 @@
                     },
                     "DataFieldForAction::CatalogService.reTrigger": {
                       "enableOnSelect": "single"
+                    },
+                    "Id_trigger_SFTP_server": {
+                      "press": "com.app.errorhandleui.ext.controller.TriggerSFTP.OnTriggerSFTP",
+                      "visible": false,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Trigger SFTP Server",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "DataFieldForAction::CatalogService.reTrigger"
+                      }
                     }
                   }
                 }
