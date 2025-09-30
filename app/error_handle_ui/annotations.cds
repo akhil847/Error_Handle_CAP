@@ -1,7 +1,6 @@
 using CatalogService as service from '../../srv/errorlog-service';
 
 
-
 annotate service.ErrorLogSet with {
     createdAt  @UI.HiddenFilter: false;
     createdBy  @UI.HiddenFilter: false;
@@ -13,9 +12,11 @@ annotate service.ErrorLogSet with {
 annotate service.ErrorLogSet with @(
 
     UI.HeaderInfo                 : {
-        TypeName      : 'All integration flow issues',
+        TypeName      : 'All integration flow issue',
         TypeNamePlural: 'All integration flow issues',
-        Title         : {Value: title}
+        Title         : {Value: '{iFlow_name}'},
+        ImageUrl    : {value:'./icons/errorlog.jpg'}
+
     },
 
     UI.SelectionFields            : [

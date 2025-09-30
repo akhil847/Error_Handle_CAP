@@ -5,24 +5,30 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("com.app.errorhandleuifa.controller.Home", {
-        	onInit: function() {
-                
-            // var oView = this.getView();
+        onInit: async function () {
+            var oChartModel = new JSONModel();
+            this.getView().setModel(oChartModel, "oChartModel");
 
-            // // Load card manifests dynamically
-            // var cardManifests = new JSONModel();
-            // cardManifests.loadData(sap.ui.require.toUrl("com/app/errorhandleuifa/model/cardsManifests.json"));
+            // Fetch data from OData V4 service
+            try {
+                const oModel = this.getOwnerComponent().getModel();
+                const oBinding = oModel.bindList("/DailyErrorCounts");
+                await oBinding.requestContexts(0, 100).then(aContexts => {
+                    const aData = aContexts.map(oCtx => oCtx.getObject());
+                    oChartModel.setData({ value: aData });
+                });
+            } catch (error) {
+                console.error("Error fetching chart data:", error);
+            }
 
-            // // Set it as a named model
-            // oView.setModel(cardManifests, "cardsManifest");
-
-            // // Optionally set other data like date or icon
-            // var homeIconUrl = sap.ui.require.toUrl("com/app/errorhandleuifa/images/CompanyLogo.png");
-            // var oDateModel = new JSONModel({
-            //     homeIconUrl: homeIconUrl,
-            //     date: new Date().toLocaleDateString()
-            // });
-            // oView.setModel(oDateModel, "viewData");
+        },
+        onAfterRendering: function () {
+            var oVizFrame = this.byId("idBarChart");
+            var oPopover = this.byId("idPopOver");
+            if (oPopover && oVizFrame) {
+                oPopover.connect(oVizFrame.getVizUid());
+            }
         }
+
     });
 });

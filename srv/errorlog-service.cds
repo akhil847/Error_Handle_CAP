@@ -18,14 +18,8 @@ service CatalogService {
         response : String;
       }
     }
-    function countErrors() returns {
-        TotalErrors: Integer;
-        TotalSuccessErrors: Integer;
-        TotalNoretries: Integer;
-        TotalFailedErrors: Integer;
-    }
 
-  function countErrorsDonut() returns array of ErrorCountType;
+  function countErrors() returns array of ErrorCountType;
   type ErrorCountType : {
     Identifier : String;
     Value      : Integer;
@@ -33,5 +27,14 @@ service CatalogService {
   entity ErrorFilesSet as projection on E_Schema.ErrorFilesSet actions{
     action reTriggerFile()
   }
+
+//    function TotalErrorsByDay() returns array of ErrorCountType;
+//   // type ErrorCountType : {
+//   //   Identifier : String;
+//   //   Value      : Integer;
+//   // }
+
+// VIEW for date wise count
+entity DailyErrorCounts as projection on E_Schema.DailyErrorCounts;
 
 }

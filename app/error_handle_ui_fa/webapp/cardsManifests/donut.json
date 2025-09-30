@@ -28,7 +28,7 @@
             "dimensionAxis": "color",
             "data": {
                 "request": {
-                    "url": "/odata/v4/catalog/CatalogService.countErrorsDonut()",
+                    "url": "/odata/v4/catalog/CatalogService.countErrors()",
                     "parameters": {},
                     "headers": {},
                     "withCredentials": true

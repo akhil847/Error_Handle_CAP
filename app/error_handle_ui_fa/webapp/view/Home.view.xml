@@ -6,137 +6,130 @@
     xmlns:card="sap.f.cards"
     xmlns:w="sap.ui.integration.widgets"
     xmlns:cssgrid="sap.ui.layout.cssgrid"
+    xmlns:layout="sap.ui.layout"
+    xmlns:suite="sap.suite.ui.commons"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:core="sap.ui.core"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
 >
-    <Page
-        id="page"
-        title="{i18n>title}"
+    <ScrollContainer
+        id="scrollContainer"
+        horizontal="false"
+        vertical="true"
+        width="100%"
+        height="100%"
     >
-        <!-- <f:ShellBar
-            id="_IDGenShellBar"
-            title="Drone Hive"
-            secondTitle="secondTitle"
-            homeIcon="homeIcon"
-            showCopilot="true"
-            showSearch="true"
-            showNotifications="true"
-            showProductSwitcher="true"
-            class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+        <VBox
+            id="_IDGenVBox"
+            width="100%"
         >
-            <f:menu>
-                <Menu id="_IDGenMenu1">
-                    <MenuItem
-                        id="_IDGenMenuItem"
-                        text="Monitor"
-                        icon="homeIconUrl"
-                    />
-                </Menu>
-            </f:menu>
-            <f:profile>
-                <Avatar
-                    id="_IDGenAvatar"
-                    initials="UI"
-                />
-            </f:profile>
-        </f:ShellBar> -->
-        <IconTabBar
-            id="idIconTabBar"
-            select="handleIconTabBarSelect"
-            headerBackgroundDesign="Transparent"
-            class="sapUiResponsiveContentPadding sapUiSmallMarginBegin"
-        >
-            <items>
-                <IconTabFilter
-                    id="_IDGenIconTabFilter"
-                    text="Overview"
-                >
-                    <Title
-                        id="_IDGenTitle1"
-                        text="All Errors"
-                        titleStyle="H2"
-                        class="sapUiSmallMarginBottom sapUiSmallMarginTop sapUiSmallMarginBegin"
-                    />
-                    <f:GridContainer id="_IDGenGridContainer">
-                        <f:layout>
-                            <f:GridContainerSettings
-                                id="_IDGenGridContainerSettings"
-                                rowSize="5rem"
-                                columnSize="5rem"
-                                gap="1rem"
-                            />
-                        </f:layout>
-                        <f:layoutS>
-                            <f:GridContainerSettings
-                                id="_IDGenGridContainerSettings1"
-                                rowSize="5rem"
-                                columnSize="5rem"
-                                gap="0.5rem"
-                            />
-                        </f:layoutS>
-                        <!-- Custom Cars -->
-                        <!-- card1 -->
-                        <w:Card
-                            id="totalErrorsCard"
-                            manifest="./cardsManifests/totalErrorsCard.json"
-                            height="250px"
-                            width="250px"
-                            action="onAction"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData1"
-                                    minRows="4"
-                                    columns="3"
+            <f:ShellBar
+                id="_IDGenShellBar"
+                title="POC-EH"
+                secondTitle="Overview"
+                homeIcon="homeIcon"
+                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+            />
+            <IconTabBar
+                id="idIconTabBar"
+                select="handleIconTabBarSelect"
+                headerBackgroundDesign="Transparent"
+                class="sapUiResponsiveContentPadding sapUiSmallMarginBegin"
+            >
+                <items>
+                    <IconTabFilter
+                        id="_IDGenIconTabFilter"
+                        text="Overview"
+                    >
+                        <Title
+                            id="_IDGenTitle1"
+                            text="All Errors"
+                            titleStyle="H2"
+                            class="sapUiSmallMarginBottom sapUiSmallMarginTop sapUiSmallMarginBegin"
+                        />
+                        <f:GridContainer id="_IDGenGridContainer">
+                            <f:layout>
+                                <f:GridContainerSettings
+                                    id="_IDGenGridContainerSettings"
+                                    rowSize="5rem"
+                                    columnSize="5rem"
+                                    gap="1rem"
                                 />
-                            </w:layoutData>
-                        </w:Card>
-                        <!-- card2 -->
-                        <w:Card
-                            id="totalReprocessSuccessCard"
-                            manifest="./cardsManifests/totalSuccessCard.json"
-                            height="250px"
-                            width="250px"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData2"
-                                    minRows="4"
-                                    columns="3"
+                            </f:layout>
+                            <f:layoutS>
+                                <f:GridContainerSettings
+                                    id="_IDGenGridContainerSettings1"
+                                    rowSize="5rem"
+                                    columnSize="5rem"
+                                    gap="0.5rem"
                                 />
-                            </w:layoutData>
-                        </w:Card>
-                        <!-- card3 -->
-                        <w:Card
-                            id="totalReprocessFailedCard"
-                            manifest="./cardsManifests/totalFailed.json"
-                            height="250px"
-                            width="250px"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData3"
-                                    minRows="4"
-                                    columns="3"
-                                />
-                            </w:layoutData>
-                        </w:Card>
-                        <!-- card4 -->
-                        <w:Card
-                            id="totalNoRetriesYet"
-                            manifest="./cardsManifests/totalNoRetries.json"
-                            height="250px"
-                            width="250px"
-                            action="onAction"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData4"
-                                    minRows="4"
-                                    columns="3"
-                                />
-                            </w:layoutData>
-                        </w:Card>
-                        <!-- card5 -->
-                        <!-- <w:Card
+                            </f:layoutS>
+                            <!-- Custom Cars -->
+                            <!-- card1 -->
+                            <w:Card
+                                id="totalErrorsCard"
+                                manifest="./cardsManifests/totalErrorsCard.json"
+                                height="250px"
+                                width="250px"
+                                action="onAction"
+                            >
+                                <w:layoutData>
+                                    <f:GridContainerItemLayoutData
+                                        id="_IDGenGridContainerItemLayoutData1"
+                                        minRows="4"
+                                        columns="3"
+                                    />
+                                </w:layoutData>
+                            </w:Card>
+                            <!-- card2 -->
+                            <w:Card
+                                id="totalReprocessSuccessCard"
+                                manifest="./cardsManifests/totalSuccessCard.json"
+                                height="250px"
+                                width="250px"
+                            >
+                                <w:layoutData>
+                                    <f:GridContainerItemLayoutData
+                                        id="_IDGenGridContainerItemLayoutData2"
+                                        minRows="4"
+                                        columns="3"
+                                    />
+                                </w:layoutData>
+                            </w:Card>
+                            <!-- card3 -->
+                            <w:Card
+                                id="totalReprocessFailedCard"
+                                manifest="./cardsManifests/totalFailed.json"
+                                height="250px"
+                                width="250px"
+                            >
+                                <w:layoutData>
+                                    <f:GridContainerItemLayoutData
+                                        id="_IDGenGridContainerItemLayoutData3"
+                                        minRows="4"
+                                        columns="3"
+                                    />
+                                </w:layoutData>
+                            </w:Card>
+                            <!-- card4 -->
+                            <w:Card
+                                id="totalNoRetriesYet"
+                                manifest="./cardsManifests/totalNoRetries.json"
+                                height="250px"
+                                width="250px"
+                                action="onAction"
+                            >
+                                <w:layoutData>
+                                    <f:GridContainerItemLayoutData
+                                        id="_IDGenGridContainerItemLayoutData4"
+                                        minRows="4"
+                                        columns="3"
+                                    />
+                                </w:layoutData>
+                            </w:Card>
+                            <!-- card5 -->
+                            <!-- <w:Card
                             id="userInfoCard"
                             manifest="./cardsManifests/userInfoCard.json"
                             height="250px"
@@ -151,9 +144,9 @@
                             </w:layoutData>
                         </w:Card> -->
 
-                        <!-- cards end -->
+                            <!-- cards end -->
 
-                        <!-- <w:Card
+                            <!-- <w:Card
                             id="_IDGenCard"
                             manifest="{manifests>/timeline}"
                             action="onAction"
@@ -175,7 +168,7 @@
                                 />
                             </w:layoutData>
                         </w:Card> -->
-                        <!-- <w:Card
+                            <!-- <w:Card
                             id="_IDGenCard1"
                             manifest="{manifests>/object}"
                             action="onAction"
@@ -188,7 +181,7 @@
                                 />
                             </w:layoutData>
                         </w:Card> -->
-                        <!-- <w:Card
+                            <!-- <w:Card
                             id="_IDGenCard2"
                             manifest="{path: 'manifests>/component', formatter: '.resolveCardUrl'}"
                             action="onAction"
@@ -214,7 +207,7 @@
                                 />
                             </w:layoutData>
                         </w:Card> -->
-                        <!-- <w:Card
+                            <!-- <w:Card
                             id="_IDGenCard3"
                             manifest="{manifests>/calendar}"
                             action="onAction"
@@ -234,85 +227,164 @@
                                 />
                             </w:layoutData>
                         </w:Card> -->
-                    </f:GridContainer>
-                    <Title
-                        id="_IDGenTitle"
-                        text="Incidents"
-                        titleStyle="H2"
-                        class="sapUiSmallMarginBottom sapUiSmallMarginTop sapUiSmallMarginBegin"
-                    />
-                    <f:GridContainer id="_IDGenGridContainer1">
-                        <f:layout>
-                            <f:GridContainerSettings
-                                id="_IDGenGridContainerSettings2"
-                                rowSize="5rem"
-                                columnSize="5rem"
-                                gap="1rem"
-                            />
-                        </f:layout>
-                        <f:layoutS>
-                            <f:GridContainerSettings
-                                id="_IDGenGridContainerSettings3"
-                                rowSize="5rem"
-                                columnSize="5rem"
-                                gap="0.5rem"
-                            />
-                        </f:layoutS>
-                        <!-- <w:Card
-                            id="_IDGenCard4"
-                            manifest="{manifests>/stackedColumn}"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData4"
-                                    rows="5"
-                                    columns="4"
+                        </f:GridContainer>
+                        <Title
+                            id="_IDGenTitle"
+                            text="Incidents"
+                            titleStyle="H2"
+                            class="sapUiSmallMarginBottom sapUiSmallMarginTop sapUiSmallMarginBegin"
+                        />
+                        <f:GridContainer id="_IDGenGridContainer1">
+                            <f:layout>
+                                <f:GridContainerSettings
+                                    id="_IDGenGridContainerSettings2"
+                                    rowSize="5rem"
+                                    columnSize="5rem"
+                                    gap="1rem"
                                 />
-                            </w:layoutData>
-                        </w:Card> -->
-                        <w:Card
-                            id="_IDGenCard5"
-                            manifest="./cardsManifests/donut.json"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData5"
-                                    rows="4"
-                                    columns="4"
+                            </f:layout>
+                            <f:layoutS>
+                                <f:GridContainerSettings
+                                    id="_IDGenGridContainerSettings3"
+                                    rowSize="5rem"
+                                    columnSize="5rem"
+                                    gap="0.5rem"
                                 />
-                            </w:layoutData>
-                        </w:Card>
-                        <!-- <w:Card
-                            id="_IDGenCard6"
-                            manifest="{manifests>/list1}"
-                            baseUrl="./"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData6"
-                                    columns="4"
-                                />
-                            </w:layoutData>
-                        </w:Card> -->
-                        <!-- <w:Card
-                            id="_IDGenCard7"
-                            manifest="{manifests>/list2}"
-                            baseUrl="./"
-                            action="onAction"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData7"
-                                    columns="4"
-                                />
-                            </w:layoutData>
-                        </w:Card> -->
-                    </f:GridContainer>
-                </IconTabFilter>
-                <!-- <IconTabFilter text="Team Distribution" />
+                            </f:layoutS>
+                            <w:Card
+                                id="_IDGenCard5"
+                                manifest="./cardsManifests/donut.json"
+                            >
+                                <w:layoutData>
+                                    <f:GridContainerItemLayoutData
+                                        id="_IDGenGridContainerItemLayoutData5"
+                                        rows="4"
+                                        columns="4"
+                                    />
+                                </w:layoutData>
+                            </w:Card>
+                            <w:Card
+                                id="todayRecordsCard"
+                                manifest="./cardsManifests/todayLogTable.json"
+                                width="700px"
+                                action="onAction"
+                            >
+                                <w:layoutData>
+                                    <f:GridContainerItemLayoutData id="_IDGenGridContainerItemLayoutData"
+                                        minRows="4"
+                                        columns="3"
+                                    />
+                                </w:layoutData>
+                            </w:Card>
+                        </f:GridContainer>
+                    </IconTabFilter>
+                    <!-- <IconTabFilter text="Team Distribution" />
 			<IconTabFilter text="Drone Maintenance" />
 			<IconTabFilter text="Drone Development" /> -->
-            </items>
-        </IconTabBar>
-    </Page>
+                </items>
+            </IconTabBar>
+            <!-- Bars start -->
+            <suite:ChartContainer
+                id="chartContainer123"
+                width="100%"
+            >
+                <suite:content>
+                    <suite:ChartContainerContent id="chartContainerContent333">
+                        <suite:content>
+                            <viz:VizFrame
+                                id="idBarChart"
+                                width="auto"
+                                height="600px"
+                                uiConfig="{applicationSet:'fiori'}"
+                                vizType="column"
+                                vizProperties="{
+                        plotArea: {
+                            dataLabel: {visible: true},
+                                    colorPalette: ['rgba(0, 162, 255, 0.61)','rgba(81, 176, 13, 0.62)', 'rgba(216, 63, 63, 0.57)','rgba(247, 128, 0, 0.55)']
+
+                        },
+                        title: {text:'Day wise errors'},
+                        valueAxis: {
+                            title: {
+                                visible: true,
+                                text: 'Count'
+                            },
+                            label: {
+                                formatString: '#,##0'
+                            },
+                            interval: {
+                                value: 5
+                            }
+                        },
+                        categoryAxis: {
+                            title: {
+                                visible: true,
+                                text: 'Date'
+                            }
+                        }
+                    }"
+                                selectData="onSelectData"
+                                renderComplete="handleRenderComplete"
+                            >
+                                <viz:dataset>
+                                    <viz.data:FlattenedDataset
+                                        id="flattenData0"
+                                        data="{oChartModel>/value}"
+                                    >
+                                        <viz.data:dimensions>
+                                            <viz.data:DimensionDefinition
+                                                id="_IDGenDimensionDefinition2"
+                                                name="Date"
+                                                value="{oChartModel>errorDate}"
+                                            />
+                                        </viz.data:dimensions>
+                                        <viz.data:measures>
+                                            <viz.data:MeasureDefinition
+                                                id="_IDGenMeasureDefinition4"
+                                                name="TotalErrors"
+                                                value="{oChartModel>errorCount}"
+                                            />
+                                            <viz.data:MeasureDefinition
+                                                id="_IDGenMeasureDefinition2"
+                                                name="Success"
+                                                value="{oChartModel>successCount}"
+                                            />
+                                            <viz.data:MeasureDefinition
+                                                id="_IDGenMeasureDefinition3"
+                                                name="Failed"
+                                                value="{oChartModel>failedCount}"
+                                            />
+                                            <viz.data:MeasureDefinition
+                                                id="_IDGenMeasureDefinitio"
+                                                name="NoRetries"
+                                                value="{oChartModel>noRetriesCount}"
+                                            />
+                                        </viz.data:measures>
+                                    </viz.data:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <viz.feeds:FeedItem
+                                        id="_IDGenFeedItem6"
+                                        uid="valueAxis"
+                                        type="Measure"
+                                        values="TotalErrors,Success,Failed,NoRetries"
+                                    />
+                                    <viz.feeds:FeedItem
+                                        id="_IDGenFeedItem7"
+                                        uid="categoryAxis"
+                                        type="Dimension"
+                                        values="Date"
+                                    />
+                                </viz:feeds>
+                                <viz:dependents>
+                                    <viz:Popover id="idPopOver" />
+                                </viz:dependents>
+                            </viz:VizFrame>
+                        </suite:content>
+                    </suite:ChartContainerContent>
+                </suite:content>
+            </suite:ChartContainer>
+            <!-- Bars end -->
+        </VBox>
+    </ScrollContainer>
 </mvc:View>

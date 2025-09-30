@@ -26,13 +26,16 @@
       },
       "withCredentials": true                     
     },
-    "path": "/"                                   
+    "path": "/value/0"                                   
   },
       "groups": [
         {
           "title": "Error Count",
           "items": [
-            {"label": "All Errors", "value": "{TotalErrors}", "valueColor": "{Status}"}
+            {
+              "label": "Total Errors",
+              "value": "{Value}"
+            }
           ]
         }
       ]

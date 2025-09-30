@@ -1,6 +1,6 @@
 const { executeHttpRequest } = require('@sap-cloud-sdk/http-client'); // an import to call destination
 const { getDestination } = require('@sap-cloud-sdk/connectivity'); // an import to check destination exist or not
-const { XMLBuilder } = require('fast-xml-parser');  // to convert the json to xml
+const { XMLParser, XMLBuilder, XMLValidator } = require('fast-xml-parser');  // to convert the json to xml
 const { Readable } = require('stream'); // to check the file format is stream or string (base64)
 
 
@@ -53,7 +53,7 @@ const onBeforeErrorFilesSetCreate = async (req) => {
 // on handler for just triggering the integration flow (no payload passing case)
 // Note: button hidden coz no use
 const onTriggerSFTP = async (req) => {
-    const endPoint = '/http/centralReprocess';
+    const endPoint = '';  // no config endpoint
     try {
         const destination = await getDestination({
             destinationName: 'CPI_Destination'
@@ -72,7 +72,7 @@ const onTriggerSFTP = async (req) => {
             method: 'POST',
             url: endPoint,
             data: "",   //no payload is passing here
-            headers: {  'TransactionType': 'Reprocess' }
+            headers: { 'TransactionType': 'Reprocess' }
             // 'Sender': 'CAP',
         });
         // req.notify("Integration flow triggerd successfully")
@@ -89,7 +89,7 @@ const onTriggerSFTP = async (req) => {
 
 // on handler for triggering the integration flow with payload passing case CURRENTLY JSON ONLY
 const onReTriggerIflow = async (req) => {
-    const endPoint = '/http/centralReprocess';
+    const endPoint = '/http/purchaseorder';
     const selectedId = req.params[0].ID;
     try {
         var result = await SELECT.one.from("ErrorLogSet").where({ ID: selectedId });
@@ -116,16 +116,33 @@ const onReTriggerIflow = async (req) => {
         } else {
             throw new Error('Can not reach destination.');
         }
-        // Last chnage
+        // Last chnage (FOR XML DATA)
         // const builder = new XMLBuilder();
-        // const xml = builder.build(jsonObj);
-        // console.log("Generated XML" + xml)
+        // const xmlData = builder.build(JSON.parse(result.Source_payload));
+        // const isXML = XMLValidator.validate(xmlData, { allowBooleanAttributes: true });
+
+        // //         {
+        // //   err: {
+        // //     code: string;
+        // //     msg: string,
+        // //     line: number,
+        // //     col: number
+        // //   };
+        // // }
+        // req.notify("XML building completed" + isXML.err.code)
+        // console.log("Generated XML" + isXML.err.msg)
+        // req.info(500, 'Generated XML :' + xmlData);
+
+        // const parser = new XMLParser();
+        // // Convert XML to JSON
+        // const jsonObj = parser.parse(result.Source_payload);
+        // console.log(JSON.stringify(jsonObj))
 
         const response = await executeHttpRequest(destination, {
             method: 'POST',
             url: endPoint,
             data: result.Source_payload,
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'TransactionType': 'Reprocess', 'receiver': result.Receiver_System }
+            headers: { 'Content-Type': 'application/json', 'Sender': 'CAP', 'Accept': 'application/json', 'TransactionType': 'Reprocess', 'receiver': result.Receiver_System }
             // 'Sender': 'CAP',
         });
         const updateStatus = await UPDATE("ErrorLogSet").set({ Status: "Success" }).where({ ID: selectedId });
@@ -159,7 +176,7 @@ const onSendFileToCPI = async (req) => {
 
     }
     try {
-        const endPoint = '/http/centralReprocess';
+        const endPoint = '/http/SFTP_flow';
         const destination = await getDestination({ destinationName: 'CPI_Destination' });
         if (destination) {
             destination.authTokens?.forEach(authToken => {
@@ -174,7 +191,7 @@ const onSendFileToCPI = async (req) => {
             method: 'POST',
             url: endPoint,
             data: result.Content,
-            headers: { 'Content-Type': mimeType, 'Accept': mimeType, 'TransactionType': 'Reprocess', 'receiver': 'HighRadius' }
+            headers: { 'Content-Type': mimeType, 'Accept': mimeType, 'TransactionType': 'Reprocess', 'Sender': 'CAP' }
 
         });
         // 'Sender': 'CAP',
@@ -191,11 +208,29 @@ const onSendFileToCPI = async (req) => {
     }
 };
 
+const onReadCount= async () => {
+        const result = await cds.run(
+            SELECT.one.from('ErrorLogSet').columns([
+                { xpr: ['count(*)'], as: 'total' },
+                { xpr: ['sum(case when Status = ', { val: 'Success' }, ' then 1 else 0 end)'], as: 'success' },
+                { xpr: ['sum(case when Status = ', { val: 'Failed' }, ' then 1 else 0 end)'], as: 'failed' },
+                { xpr: ['sum(case when Status = ', { val: 'No retries yet' }, ' then 1 else 0 end)'], as: 'noretries' }
+            ])
+        );
+
+        return [
+            { Identifier: 'TotalErrors', Value: result.total },
+            { Identifier: 'TotalSuccessErrors', Value: result.success },
+            { Identifier: 'TotalFailedErrors', Value: result.failed },
+            { Identifier: 'TotalNoretries', Value: result.noretries }
+        ];
+    }
 // EXPORTING FUNCTIONS 
 module.exports = {
     onBeforeErrorLogSetCreate,
     onReTriggerIflow,
     onBeforeErrorFilesSetCreate,
     onTriggerSFTP,
-    onSendFileToCPI
+    onSendFileToCPI,
+    onReadCount
 };
