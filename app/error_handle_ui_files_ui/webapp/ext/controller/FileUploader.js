@@ -15,7 +15,7 @@ sap.ui.define([
                     return;
                 }
 
-                new sap.m.MessageBox.confirm(`Do you want to upload file "${file.name}"?`, {
+                new sap.m.MessageBox.warning(`Do you want to upload file "${file.name}"? uploading new file will override the existing file`, {
                     actions: [sap.m.MessageBox.Action.YES, sap.m.MessageBox.Action.NO],
                     onClose: (oAction) => {
                         if (oAction === sap.m.MessageBox.Action.YES) {

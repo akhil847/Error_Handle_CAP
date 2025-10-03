@@ -5,7 +5,7 @@
   "sap.card": {
     "type": "Table",
     "header": {
-      "title": "Records Created Today(Developing....)"
+      "title": "Recent Error records (Developing....)"
     },
     "content": {
       "data": {

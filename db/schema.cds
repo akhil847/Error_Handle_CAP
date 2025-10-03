@@ -55,6 +55,11 @@ entity ErrorLogSet : cuid, managed {
   @title: 'Receiver System'
   Receiver_System    : String;
 
+  @title: 'Type of Error'
+  error_Type : String; 
+
+  @title: 'Operation Type'
+  operation_Type : String
 
 }
 
@@ -98,6 +103,12 @@ entity ErrorFilesSet : cuid, managed {
 
   @title: 'Integration Flow'
   iFlow_name               : String;
+
+  @title: 'Type of Error'
+  error_Type : String; 
+
+  @title: 'Operation Type'
+  operation_Type : String
 
 }
 

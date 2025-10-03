@@ -13,7 +13,7 @@ sap.ui.define([
             try {
                 const oModel = this.getOwnerComponent().getModel();
                 const oBinding = oModel.bindList("/DailyErrorCounts");
-                await oBinding.requestContexts(0, 100).then(aContexts => {
+                await oBinding.requestContexts().then(aContexts => {
                     const aData = aContexts.map(oCtx => oCtx.getObject());
                     oChartModel.setData({ value: aData });
                 });
