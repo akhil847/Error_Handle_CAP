@@ -19,12 +19,13 @@
       "chartType": "Numeric",
       "data": {
         "request": {
-          "url": "/odata/v4/catalog/CatalogService.countErrors()",
+      "url": "/odata/v4/catalog/CatalogService.countErrors()",            
+
           "parameters": {},
           "headers": {},
           "withCredentials": true
         },
-        "path": "/"
+        "path": "/value/2"
       },
       "groups": [
         {
@@ -32,7 +33,7 @@
           "items": [
             {
               "label": "Retried but failed",
-              "value": "{TotalFailedErrors}",
+              "value": "{Value}",
               "valueColor": "Error"
             }
           ]

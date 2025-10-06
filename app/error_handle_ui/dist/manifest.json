@@ -141,7 +141,11 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable",
-                    "selectionLimit": 5
+                    "selectionLimit": 5,
+                    "disableCopyToClipboard": true,
+                    "quickVariantSelection": {
+                      "hideTableTitle": false
+                    }
                   },
                   "actions": {
                     "id_Edit_Button": {
@@ -160,7 +164,7 @@
                     },
                     "Id_trigger_SFTP_server": {
                       "press": "com.app.errorhandleui.ext.controller.TriggerSFTP.OnTriggerSFTP",
-                      "visible": true,
+                      "visible": false,
                       "enabled": true,
                       "requiresSelection": false,
                       "text": "Trigger SFTP Server",

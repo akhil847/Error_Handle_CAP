@@ -8,31 +8,30 @@
         "src": "sap-icon://restart"
       }
     },
-	"actions": [
-				{
-					"type": "Navigation",
-					"url": ""
-				}
-            ],
+    "actions": [
+      {
+        "type": "Navigation",
+        "url": ""
+      }
+    ],
     "content": {
       "data": {
-    "request": {
-      "url": "/odata/v4/catalog/CatalogService.countErrors()",            
-      "parameters": {
-       
+        "request": {
+          "url": "/odata/v4/catalog/CatalogService.countErrors()",
+          "parameters": {},
+          "headers": {},
+          "withCredentials": true
+        },
+        "path": "/value/3"
       },
-      "headers": {
-        
-      },
-      "withCredentials": true                     
-    },
-    "path": "/"                                   
-  },
       "groups": [
         {
           "title": "Action Required",
           "items": [
-            {"label": "No reprocess yet", "value": "{TotalNoretries}"}
+            {
+              "label": "No reprocess yet",
+              "value": "{Value}"
+            }
           ]
         }
       ]

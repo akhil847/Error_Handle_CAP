@@ -14,14 +14,14 @@
         <beginButton>
             <Button id="_IDGenButton1"
                 text="Update"
-                type="Accept"
+                type="Emphasized"
                 press="onUpdate" />
         </beginButton>
         
         <endButton>
             <Button id="_IDGenButton2"
                 text="Cancel"
-                type="Reject"
+                type="Default"
                 press=".onCloseDailog" />
         </endButton>
         

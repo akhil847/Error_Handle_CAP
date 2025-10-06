@@ -26,13 +26,13 @@
       },
       "withCredentials": true                     
     },
-    "path": "/"                                   
+    "path": "/value/1"                                 
   },
       "groups": [
         {
           "title": "Retry Success Count",
           "items": [
-            {"label": "All successfully retied messages", "value": "{TotalSuccessErrors}"}
+            {"label": "All successfully retied messages", "value": "{Value}"}
           ]
         }
       ]

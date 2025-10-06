@@ -29,7 +29,7 @@
                 title="POC-EH"
                 secondTitle="Overview"
                 homeIcon="homeIcon"
-                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                class=""
             />
             <IconTabBar
                 id="idIconTabBar"
@@ -46,7 +46,7 @@
                             id="_IDGenTitle1"
                             text="All Errors"
                             titleStyle="H2"
-                            class="sapUiSmallMarginBottom sapUiSmallMarginTop sapUiSmallMarginBegin"
+                            class="sapUiSmallMarginBegin"
                         />
                         <f:GridContainer id="_IDGenGridContainer">
                             <f:layout>
@@ -119,120 +119,13 @@
                                 height="250px"
                                 width="250px"
                                 action="onAction"
-                            >
-                                <w:layoutData>
-                                    <f:GridContainerItemLayoutData
-                                        id="_IDGenGridContainerItemLayoutData4"
-                                        minRows="4"
-                                        columns="3"
-                                    />
-                                </w:layoutData>
-                            </w:Card>
-                            <!-- card5 -->
-                            <!-- <w:Card
-                            id="userInfoCard"
-                            manifest="./cardsManifests/userInfoCard.json"
-                            height="250px"
-                            width="250px"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData 
-                                    id="_IDGenGridContainerItemLayoutData6"
-                                    minRows="4"
-                                    columns="3"
-                                />
-                            </w:layoutData>
-                        </w:Card> -->
-
-                            <!-- cards end -->
-
-                            <!-- <w:Card
-                            id="_IDGenCard"
-                            manifest="{manifests>/timeline}"
-                            action="onAction"
-                        >
-                            <w:customData>
-                                <card:CardBadgeCustomData
-                                    id="_IDGenCardBadgeCustomData"
-                                    value="Updated"
-                                    icon="sap-icon://status-in-process"
-                                    state="Indication03"
-                                    announcementText="The card is recently updated."
-                                />
-                            </w:customData>
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData"
-                                    minRows="4"
-                                    columns="4"
-                                />
-                            </w:layoutData>
-                        </w:Card> -->
-                            <!-- <w:Card
-                            id="_IDGenCard1"
-                            manifest="{manifests>/object}"
-                            action="onAction"
-                        >
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData1"
-                                    minRows="4"
-                                    columns="3"
-                                />
-                            </w:layoutData>
-                        </w:Card> -->
-                            <!-- <w:Card
-                            id="_IDGenCard2"
-                            manifest="{path: 'manifests>/component', formatter: '.resolveCardUrl'}"
-                            action="onAction"
-                        >
-                            <w:customData>
-                                <card:CardBadgeCustomData
-                                    id="_IDGenCardBadgeCustomData1"
-                                    value="New"
-                                    announcementText="Card was newly added."
-                                />
-                                <card:CardBadgeCustomData
-                                    id="_IDGenCardBadgeCustomData2"
-                                    icon="sap-icon://pushpin-off"
-                                    visibilityMode="Persist"
-                                    announcementText="The card is pinned on top."
-                                />
-                            </w:customData>
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData2"
-                                    minRows="5"
-                                    columns="6"
-                                />
-                            </w:layoutData>
-                        </w:Card> -->
-                            <!-- <w:Card
-                            id="_IDGenCard3"
-                            manifest="{manifests>/calendar}"
-                            action="onAction"
-                        >
-                            <w:customData>
-                                <card:CardBadgeCustomData
-                                    id="_IDGenCardBadgeCustomData3"
-                                    value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue libero ut blandit faucibus. Phasellus sed urna id tortor consequat accumsan eget at leo. Cras quis arcu magna."
-                                    announcementText="Lorem ipsum"
-                                />
-                            </w:customData>
-                            <w:layoutData>
-                                <f:GridContainerItemLayoutData
-                                    id="_IDGenGridContainerItemLayoutData3"
-                                    minRows="4"
-                                    columns="4"
-                                />
-                            </w:layoutData>
-                        </w:Card> -->
+                            />
                         </f:GridContainer>
                         <Title
                             id="_IDGenTitle"
                             text="Incidents"
                             titleStyle="H2"
-                            class="sapUiSmallMarginBottom sapUiSmallMarginTop sapUiSmallMarginBegin"
+                            class="sapUiSmallMarginBegin"
                         />
                         <f:GridContainer id="_IDGenGridContainer1">
                             <f:layout>
@@ -266,11 +159,12 @@
                             <w:Card
                                 id="todayRecordsCard"
                                 manifest="./cardsManifests/todayLogTable.json"
-                                width="700px"
+                                width="900px"
                                 action="onAction"
                             >
                                 <w:layoutData>
-                                    <f:GridContainerItemLayoutData id="_IDGenGridContainerItemLayoutData"
+                                    <f:GridContainerItemLayoutData
+                                        id="_IDGenGridContainerItemLayoutData"
                                         minRows="4"
                                         columns="3"
                                     />
@@ -300,7 +194,7 @@
                                 vizProperties="{
                         plotArea: {
                             dataLabel: {visible: true},
-                                    colorPalette: ['rgba(0, 162, 255, 0.61)','rgba(81, 176, 13, 0.62)', 'rgba(216, 63, 63, 0.57)','rgba(247, 128, 0, 0.55)']
+                                    colorPalette: ['rgba(0, 153, 255, 1)','rgba(181, 101, 11, 1)','rgba(123, 142, 29, 1)','rgba(214, 23, 112, 1)']
 
                         },
                         title: {text:'Day wise errors'},

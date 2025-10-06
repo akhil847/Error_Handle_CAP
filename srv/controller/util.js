@@ -26,7 +26,6 @@ const onBeforeErrorFilesSetCreate = async (req) => {
     try {
         const content = req.data.Content;
         if ((content instanceof Readable)) {
-            // return req.error(400, "Unsupported content type, binary stream expected");
             const chunks = [];
             for await (const chunk of content) {
                 chunks.push(chunk);

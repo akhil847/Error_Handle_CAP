@@ -16,7 +16,6 @@ Content-Type: application/xml
 FileName: samplexml.xml
 MIMEType:application/xml
 
-
  < ./files/samplexml.xml
 # < ./files/test_sample.pdf
 
@@ -75,19 +74,16 @@ Content-Type: application/json
 
 {
   "Source_payload": {
-  "PurchaseOrder": "0061234567",
-  "CreatedByUser": "unknown12",
+  "PurchaseOrder": "0987",
+  "CreatedByUser": "unknown112",
   "PurchaseOrderDate": "2025-09-20",
   "companyCode": "1000",
-  "PurchasingOrganization": "US01",
+  "PurchasingOrganization": "US201",
   "PurchasingGroup": "PG01",
   "MaterialType": "ROH",
   "MaterialGroup": "MG100",
   "Plant": "PL01",
-  "StorageLocation": "SL01",
-  "nested":{
-    "TSET":"testing"
-  }
+  "StorageLocation": "SL01"
 },
   "Error_Code": "500",
   "Error_Msg": "com.sap.xi.mapping.camel.XiMappingException: Cannot produce target element /PurchaseOrderData/Material. Queue has not enough values in context. Target xsd requires a value for this element, but target field mapping does not produce one. Probably the xml-instance is not valid to the source xsd, or the target field mapping does not fulfill the requirement of the target xsd.",
