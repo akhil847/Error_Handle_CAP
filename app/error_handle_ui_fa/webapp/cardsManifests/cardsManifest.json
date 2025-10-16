@@ -67,7 +67,7 @@
                 "destinations": {
                     "srv": {
                         "name": "srv-api",
-                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/odata/v4/catalog/"
+                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/"
                     }
                 }
             },
@@ -118,7 +118,7 @@
                 "destinations": {
                     "srv": {
                         "name": "srv-api",
-                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/odata/v4/catalog/"
+                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/"
                     }
                 }
             },
@@ -169,7 +169,7 @@
                 "destinations": {
                     "srv": {
                         "name": "srv-api",
-                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/odata/v4/catalog/"
+                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/"
                     }
                 }
             },
@@ -218,7 +218,7 @@
                 "destinations": {
                     "srv": {
                         "name": "srv-api",
-                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/odata/v4/catalog/"
+                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/"
                     }
                 }
             },
@@ -277,7 +277,7 @@
                 "destinations": {
                     "srv": {
                         "name": "srv-api",
-                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/odata/v4/catalog/"
+                        "defaultUrl": "/b4b3b066-86fd-47cc-8c19-db49d3580052.POC_EH_managed.comapperrorhandleuifa-0.0.1/odata/v4/catalog/"
                     }
                 }
             },
