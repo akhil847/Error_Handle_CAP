@@ -127,8 +127,8 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type": "ResponsiveTable",
-                    "selectionLimit": 5,
+                    "type": "GridTable",
+                    "selectionLimit": 10,
                     "disableCopyToClipboard": true,
                     "quickVariantSelection": {
                       "hideTableTitle": false

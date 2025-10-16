@@ -140,13 +140,15 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "GridTable",
-                    "disableCopyToClipboard": true,
+                    "disableCopyToClipboard": false,
                     "growingScrollToLoad": false,
                     "growing": true,
                     "growingThreshold": 20,
                     "quickVariantSelection": {
                       "showCounts": true
-                    }
+                    },
+                    "condensedTableLayout": false,
+                    "selectionLimit": 10
                   },
                   "actions": {
                     "DataFieldForAction::CatalogService.reTriggerFile": {

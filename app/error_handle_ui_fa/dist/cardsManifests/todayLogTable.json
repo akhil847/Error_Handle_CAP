@@ -1,6 +1,7 @@
 {
   "sap.app": {
-    "id": "tableCard"
+    "id": "Id_Recent_Table",
+    "type": "card"
   },
   "sap.card": {
     "type": "Table",
@@ -38,7 +39,6 @@
           {
             "type": "Navigation",
             "url": "#ErrorLogSet-manage?filter=ID eq {ID}"
-
           }
         ]
       },

@@ -1,4 +1,8 @@
 {
+   "sap.app": {
+    "id": "Id_Noretries",
+    "type": "card"
+  },
   "sap.card": {
     "type": "Object",
     "header": {
@@ -17,7 +21,7 @@
     "content": {
       "data": {
         "request": {
-          "url": "/odata/v4/catalog/CatalogService.countErrors()",
+          "url": "/destinations/CAP_SRV_Dest/odata/v4/catalog/CatalogService.countErrors()",
           "parameters": {},
           "headers": {},
           "withCredentials": true

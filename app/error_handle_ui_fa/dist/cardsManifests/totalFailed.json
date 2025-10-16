@@ -1,4 +1,8 @@
 {
+   "sap.app": {
+    "id": "Id_Failed",
+    "type": "card"
+  },
   "sap.card": {
     "type": "Object",
     "header": {
@@ -19,7 +23,7 @@
       "chartType": "Numeric",
       "data": {
         "request": {
-      "url": "/odata/v4/catalog/CatalogService.countErrors()",            
+      "url": "/destinations/CAP_SRV_Dest/odata/v4/catalog/CatalogService.countErrors()",            
 
           "parameters": {},
           "headers": {},

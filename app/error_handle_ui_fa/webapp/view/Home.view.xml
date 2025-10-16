@@ -28,7 +28,7 @@
                 id="_IDGenShellBar"
                 title="POC-EH"
                 secondTitle="Overview"
-                homeIcon="homeIcon"
+                homeIcon="sap-icon://home"
                 class=""
             />
             <IconTabBar
@@ -69,7 +69,7 @@
                             <!-- card1 -->
                             <w:Card
                                 id="totalErrorsCard"
-                                manifest="./cardsManifests/totalErrorsCard.json"
+                                manifest="{manifests>/TotalErrors}"
                                 height="250px"
                                 width="250px"
                                 action="onAction"
@@ -85,7 +85,7 @@
                             <!-- card2 -->
                             <w:Card
                                 id="totalReprocessSuccessCard"
-                                manifest="./cardsManifests/totalSuccessCard.json"
+                                manifest="{manifests>/TotalSuccess}"
                                 height="250px"
                                 width="250px"
                             >
@@ -100,7 +100,7 @@
                             <!-- card3 -->
                             <w:Card
                                 id="totalReprocessFailedCard"
-                                manifest="./cardsManifests/totalFailed.json"
+                                manifest="{manifests>/TotalFailed}"
                                 height="250px"
                                 width="250px"
                             >
@@ -115,7 +115,7 @@
                             <!-- card4 -->
                             <w:Card
                                 id="totalNoRetriesYet"
-                                manifest="./cardsManifests/totalNoRetries.json"
+                                manifest="{manifests>/NoRetries}"
                                 height="250px"
                                 width="250px"
                                 action="onAction"
@@ -145,8 +145,8 @@
                                 />
                             </f:layoutS>
                             <w:Card
-                                id="_IDGenCard5"
-                                manifest="./cardsManifests/donut.json"
+                                id="IdDonutCard"
+                                manifest="{manifests>/Donut}"
                             >
                                 <w:layoutData>
                                     <f:GridContainerItemLayoutData
@@ -158,7 +158,7 @@
                             </w:Card>
                             <w:Card
                                 id="todayRecordsCard"
-                                manifest="./cardsManifests/todayLogTable.json"
+                                manifest="{manifests>/RecentTable}"
                                 width="900px"
                                 action="onAction"
                             >

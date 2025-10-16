@@ -142,6 +142,11 @@ resources:
     service: html5-apps-repo
     service-name: Error_Handle_CAP-html5-service
     service-plan: app-host
+- name: Error_Handle_CAP-html5-runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
 - name: Error_Handle_CAP-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
@@ -158,6 +163,7 @@ resources:
           - Authentication: NoAuthentication
             HTML5.DynamicDestination: true
             HTML5.ForwardAuthToken: true
+            HTML5.Timeout: 120000
             Name: srv-api
             ProxyType: Internet
             Type: HTTP

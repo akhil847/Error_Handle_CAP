@@ -17,5 +17,9 @@ module.exports = cds.service.impl(async function (srv) {
     srv.on(["TriggerSFTP"], onTriggerSFTP) // ON HANDLER FOR TRIGGER IFLOW WITHOUT PAYLOAD (NOT USED IN APPLICATION)
     srv.on(["reTriggerFile"], onSendFileToCPI) // ON HANDLER FOR RE-TRIGGER FILE
     srv.on('countErrors', onReadCount); 
+    // srv.before(["UPDATE"], "ErrorFilesSet", async (req) => {
+    //     console.log("req.headers--->" + req)
+    // }) 
+
 
 });

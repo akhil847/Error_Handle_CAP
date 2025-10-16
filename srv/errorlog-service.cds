@@ -1,6 +1,6 @@
 using CPI_errordetails_schema as E_Schema from '../db/schema';
 
-service CatalogService {
+service CatalogService  {
 
   action TriggerSFTP()  returns {
         Status: String;

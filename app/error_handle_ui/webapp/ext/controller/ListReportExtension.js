@@ -11,7 +11,7 @@ sap.ui.define([
                 MessageToast.show("Please select one record.");
                 return;
             }
-            const oSelectedRecord = aContexts[0].getObject().Source_payload
+            var oSelectedRecord = aContexts[0].getObject().Source_payload
             console.log(oSelectedRecord);
 
             if (!this.oFragment) {
@@ -32,6 +32,8 @@ sap.ui.define([
                     // this.getView().byId("_IDGenTextArea").setValue(oSelectedRecord.Source_payload)
                     const oTextArea = Fragment.byId(this.fragmentId, "_IDGenTextArea");
                     if (oTextArea) {
+                        var oParsed = JSON.parse(oSelectedRecord);
+                        oSelectedRecord = JSON.stringify(oParsed, null, 2); // Pretty print
                         oTextArea.setValue(oSelectedRecord);
                     }
                     // Attach Cancel button press inline

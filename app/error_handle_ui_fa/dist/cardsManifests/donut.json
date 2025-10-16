@@ -28,7 +28,7 @@
             "dimensionAxis": "color",
             "data": {
                 "request": {
-                    "url": "/odata/v4/catalog/CatalogService.countErrors()",
+                    "url": "/destinations/CAP_SRV_Dest/odata/v4/catalog/CatalogService.countErrors()",
                     "parameters": {},
                     "headers": {},
                     "withCredentials": true

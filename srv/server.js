@@ -31,7 +31,7 @@ cds.on('bootstrap', app => {
         try {
           // Remove line breaks, decode base64
           const cleaned = body.Content.replace(/\r?\n|\r/g, '');
-          // body.Content = Buffer.from(cleaned, 'base64');
+          body.Content = Buffer.from(cleaned, 'base64');
         } catch (e) {
           return res.status(400).send({ error: { message: 'Invalid base64 Content '+ e.message, code: '400' } });
         }

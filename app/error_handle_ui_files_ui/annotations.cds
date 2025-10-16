@@ -25,7 +25,8 @@ annotate service.ErrorFilesSet with @(
       UI.HeaderInfo                 : {
         TypeName      : 'All file related issues',
         TypeNamePlural: 'All file related issues',
-        Title         : {Value: title}
+        Title         : {Value: '{iFlow_name}'},
+
     },
 
     UI.SelectionFields            : [

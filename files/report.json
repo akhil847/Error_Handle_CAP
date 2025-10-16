@@ -1,0 +1,21 @@
+{
+  "status": "SUCCEEDED",
+  "contents": {
+    "total": 5,
+    "failed": 0,
+    "status": "SUCCEEDED",
+    "messages": {},
+    "correlationId": "95efe85a-f325-4a8e-5986-927e46d298cf"
+  },
+  "reportId": {
+    "contextId": "SUB_ACCOUNT",
+    "subdomain": "aab50261trial",
+    "instanceId": "SAAS_APPROUTER_HTML5_APP_REPO",
+    "providerId": "saas_approuter",
+    "contextType": "sub_account",
+    "scenarioName": "LAUNCHPAD",
+    "subaccountId": "f9ff29a7-0fac-4bdd-bd96-81965c31c794",
+    "identityZoneId": "f9ff29a7-0fac-4bdd-bd96-81965c31c794"
+  },
+  "correlationId": "95efe85a-f325-4a8e-5986-927e46d298cf"
+}

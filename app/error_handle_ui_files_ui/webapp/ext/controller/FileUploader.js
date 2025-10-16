@@ -35,8 +35,7 @@ sap.ui.define([
                                await fetch(sUploadUrl, {
                                     method: "PUT",
                                     headers: {
-                                        "Content-Type": file.type,
-                                        "Accept": "application/json"
+                                        "Content-Type": file.type
                                     },
                                     body: arrayBuffer
                                 }).then(() => {

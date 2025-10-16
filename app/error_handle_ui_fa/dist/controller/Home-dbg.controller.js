@@ -6,6 +6,11 @@ sap.ui.define([
 
     return Controller.extend("com.app.errorhandleuifa.controller.Home", {
         onInit: async function () {
+
+
+        },
+        onAfterRendering: async function () {
+
             var oChartModel = new JSONModel();
             this.getView().setModel(oChartModel, "oChartModel");
 
@@ -21,13 +26,35 @@ sap.ui.define([
                 console.error("Error fetching chart data:", error);
             }
 
-        },
-        onAfterRendering: function () {
             var oVizFrame = this.byId("idBarChart");
             var oPopover = this.byId("idPopOver");
             if (oPopover && oVizFrame) {
                 oPopover.connect(oVizFrame.getVizUid());
             }
+
+            // Cards
+            var sCardManifestUrl = sap.ui.require.toUrl("com/app/errorhandleuifa/cardsManifests/cardsManifest.json");
+            var cardManifests = new JSONModel();
+            cardManifests.loadData(sCardManifestUrl);
+
+            // var oHost = new sap.ui.integration.Host({
+            //     resolveDestination: function (sDestinationName) {
+            //         if (sDestinationName === "srv-api") {
+            //             return sDestinationName;
+            //         }
+            //         return null;
+            //     }
+            // });
+
+            // this.getView().byId("totalErrorsCard").setHost(oHost);
+            // this.getView().byId("totalReprocessSuccessCard").setHost(oHost);
+            // this.getView().byId("totalReprocessFailedCard").setHost(oHost);
+            // this.getView().byId("totalNoRetriesYet").setHost(oHost);
+            // this.getView().byId("IdDonutCard").setHost(oHost);
+            // this.getView().byId("todayRecordsCard").setHost(oHost);
+
+
+            this.getView().setModel(cardManifests, "manifests");
         }
 
     });

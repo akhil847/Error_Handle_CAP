@@ -1,4 +1,8 @@
 {
+  "sap.app": {
+    "id": "Id_Total_Errors",
+    "type": "card"
+  },
   "sap.card": {
     "type": "Object",
     "header": {
@@ -9,25 +13,19 @@
       }
     },
     "actions": [
-				{
-					"type": "Navigation",
-					"url": ""
-				}
-            ],
+      {
+        "type": "Navigation",
+        "url": ""
+      }
+    ],
     "content": {
       "data": {
-    "request": {
-      "url": "/odata/v4/catalog/CatalogService.countErrors()",            
-      "parameters": {
-       
+        "request": {
+          "url": "/odata/v4/catalog/CatalogService.countErrors()",
+          "withCredentials": true
+        },
+        "path": "/value/0"
       },
-      "headers": {
-        
-      },
-      "withCredentials": true                     
-    },
-    "path": "/value/0"                                   
-  },
       "groups": [
         {
           "title": "Error Count",
